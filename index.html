@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>KCD Confession Page</h1>
-    <div id="confessions-container">
-        <!-- Confessions will be displayed here -->
+    <div class="container">
+        <h1>KCD Confession Page</h1>
+        <form id="confessionForm">
+            <textarea id="confessionInput" placeholder="Write your confession here..." required></textarea>
+            <button type="submit">Submit Confession</button>
+        </form>
+        <div id="confessionList">
+            <h2>Confessions:</h2>
+            <ul id="confessionDisplay"></ul>
+        </div>
     </div>
-    <form id="confession-form">
-        <input type="text" id="confession-input" placeholder="Share your confession...">
-        <button id="submit-confession">Submit</button>
-    </form>
 
     <script src="script.js"></script>
 </body>
