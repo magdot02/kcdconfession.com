@@ -1,58 +1,47 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
+    background-color: #f0f0f0;
 }
 
-.container {
-    max-width: 600px;
-    margin: auto;
-    background: white;
+#confessions-container {
+    margin: 20px;
     padding: 20px;
-    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    text-align: center;
+.confession {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
 }
 
-textarea {
+.confession:last-child {
+    border-bottom: none;
+}
+
+#confession-form {
+    margin: 20px;
+}
+
+#confession-input {
     width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
     padding: 10px;
-    border-radius: 5px;
+    font-size: 16px;
     border: 1px solid #ccc;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #5cb85c;
-    color: white;
+#submit-confession {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #4cae4c;
-}
-
-#confessionList {
-    margin-top: 20px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    background: #e9ecef;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
+#submit-confession:hover {
+    background-color: #3e8e41;
 }
