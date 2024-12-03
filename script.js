@@ -1,15 +1,44 @@
-document.getElementById('confessionForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting
+const confessionsContainer = document.getElementById('confessions-container');
+const confessionForm = document.getElementById('confession-form');
+const confessionInput = document.getElementById('confession-input');
 
-    const confessionInput = document.getElementById('confessionInput');
-    const confessionText = confessionInput.value;
+// Initialize an empty array to store confessions
+let confessions = [];
 
-    if (confessionText) {
-        const confessionDisplay = document.getElementById('confessionDisplay');
-        const newConfession = document.createElement('li');
-        newConfession.textContent = confessionText;
-        confessionDisplay.appendChild(newConfession);
+// Function to display confessions
+function displayConfessions() {
+    confessionsContainer.innerHTML = '';
+    confessions.forEach((confession) => {
+        const confessionElement = document.createElement('div');
+        confessionElement.className = 'confession';
+        confessionElement.textContent = confession;
+        confessionsContainer.appendChild(confessionElement);
+    });
+}
 
-        confessionInput.value = ''; // Clear the input field
+// Function to add a new confession
+function addConfession(confession) {
+    confessions.push(confession);
+    displayConfessions();
+}
+
+// Event listener for form submission
+confessionForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const confession = confessionInput.value.trim();
+    if (confession !== '') {
+        addConfession(confession);
+        confessionInput.value = '';
     }
+});
+
+// Load existing confessions from local storage (if available)
+if (localStorage.getItem('confessions')) {
+    confessions = JSON.parse(localStorage.getItem('confessions'));
+    displayConfessions();
+}
+
+// Save confessions to local storage when the page is closed
+window.addEventListener('beforeunload', () => {
+    localStorage.setItem('confessions', JSON.stringify(confessions));
 });
